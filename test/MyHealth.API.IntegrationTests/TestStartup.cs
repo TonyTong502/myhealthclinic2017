@@ -13,6 +13,7 @@ using MyHealth.Model;
 using Acheve.AspNetCore.TestHost.Security;
 using MyHealth.Data.Infraestructure;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.AspNetCore.Identity;
 
 namespace MyHealth.API
 {
@@ -64,7 +65,7 @@ namespace MyHealth.API
         {
             databaseInitializer.InitializeDatabaseAsync(app.ApplicationServices).Wait();
 
-            app.UseTestServerAuthentication();
+            app.UseAuthentication();
 
             app.UseExceptionHandler(builder =>
             {

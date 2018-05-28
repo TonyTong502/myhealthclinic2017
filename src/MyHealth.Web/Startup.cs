@@ -1,16 +1,15 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using MyHealth.Web.AppBuilderExtensions;
-using MyHealth.Model;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
-using MyHealth.Data;
 using MyHealth.API.Infrastructure;
-using Microsoft.Extensions.Configuration;
+using MyHealth.Data;
 using MyHealth.Data.Infraestructure;
-using Microsoft.EntityFrameworkCore;
+using MyHealth.Model;
+using MyHealth.Web.AppBuilderExtensions;
 
 namespace MyHealth.Web
 {
@@ -67,7 +66,7 @@ namespace MyHealth.Web
             MyHealthDataInitializer dataInitializer)
         {
             // Add Application Insights monitoring to the request pipeline as a very first middleware.
-            app.UseApplicationInsightsRequestTelemetry();
+            //app.UseApplicationInsightsRequestTelemetry();
 
             loggerFactory.AddConsole();
 
@@ -83,7 +82,7 @@ namespace MyHealth.Web
             }
 
             // Add Application Insights exceptions handling to the request pipeline.
-            app.UseApplicationInsightsExceptionTelemetry();
+            //app.UseApplicationInsightsExceptionTelemetry();
 
             // Add static files to the request pipeline.
             app.UseStaticFiles();
